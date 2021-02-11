@@ -1,11 +1,15 @@
 from django.urls import path
 from django.urls.conf import include
+
 from rest_framework.routers import DefaultRouter
-from .views import CommentViewSet, PostViewSet, FollowViewSet, GroupViewSet
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+from .views import CommentViewSet, FollowViewSet, GroupViewSet, PostViewSet
+
 router_v1 = DefaultRouter()
 
 router_v1.register('posts', PostViewSet, basename='posts')
@@ -14,7 +18,7 @@ router_v1.register(
     CommentViewSet,
     basename='comments'
 )
-router_v1.register('follow', FollowViewSet, basename='follow')
+router_v1.register(r'follow', FollowViewSet, basename='follow')
 router_v1.register('group', GroupViewSet, basename='group')
 
 urlpatterns = [
