@@ -24,5 +24,5 @@ router_v1.register('group', GroupViewSet, basename='group')
 urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('', include(router_v1.urls)),
+    path('v1/', include(router_v1.urls)),
 ]
